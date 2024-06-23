@@ -120,3 +120,15 @@ input[type='checkbox']{
 .read{
     border: 10px solid #76c893;
 }
+
+.remove-btn{
+    border:none;
+    background-color: inherit;
+   
+    display:block;
+    margin-left:auto ;
+}
+
+.fa-xmark{
+    font-size: 30px;
+}

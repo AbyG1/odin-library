@@ -40,6 +40,14 @@ function displayBooks(){
      const authorPara = document.createElement('p')
      const pageNopara = document.createElement('p')
      const status = document.createElement('p')
+     const removeBtn = document.createElement('button')
+     removeBtn.classList.add('remove-btn')
+     removeBtn.innerHTML= `
+      <i class="fa-solid fa-xmark"></i>
+      `
+      removeBtn.setAttribute('data-remove',`${book.id}`)
+
+
      titlePara.textContent = book.title
      authorPara.textContent = book.author
      pageNopara.textContent = `${book.pageNo}  pages`
@@ -48,7 +56,8 @@ function displayBooks(){
      const classname = (book.isRead)? 'read':'not-read'
      status.classList.add(`${classname}`)
      status.setAttribute('data-status',`${book.id}`)
-
+    
+     bookCard.appendChild(removeBtn)
      bookCard.appendChild(titlePara)
      bookCard.appendChild(authorPara)
      bookCard.appendChild(pageNopara)
@@ -67,6 +76,9 @@ document.addEventListener('click',(e) => {
   if(e.target.dataset.status){
     changeReadStatus(+e.target.dataset.status)
   }
+  if(e.target.dataset.remove || e.target.closest('[data-remove]')){
+    removeBookFromLibrary(+e.target.dataset.remove)
+  }
 })
 
 
@@ -75,9 +87,19 @@ function changeReadStatus(bookId){
       return book.id === bookId
   })[0]
   book.isRead = !book.isRead
-  displayBooks(myLibrary)
+  displayBooks()
 }
 
+function removeBookFromLibrary(bookId){
+
+  const book = myLibrary.filter((book) => {
+    return book.id === bookId
+})[0]
+ const bookPositon = myLibrary.indexOf(book)
+  myLibrary.splice(bookPositon,1)
+  displayBooks()
+
+}
 
 
 addBtn.addEventListener('click',(e) => {
