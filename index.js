@@ -4,6 +4,7 @@ const addBtn = document.querySelector('#add-btn')
 const dialogModal = document.querySelector('#modal')
 const submitBtn = document.querySelector('#submit-btn')
 const form = document.querySelector('#book-form')
+let bookIdCounter = 0
 
 
 function Book(title,author,pageNo,isRead) {
@@ -11,6 +12,7 @@ function Book(title,author,pageNo,isRead) {
     this.author = author
     this.pageNo = pageNo
     this.isRead = isRead
+    this.id = ++bookIdCounter
 }
 
 
@@ -29,7 +31,7 @@ function addBookToLibrary() {
 }
 
 function displayBooks(){
-  console.log(myLibrary)
+ 
   displayEle.innerHTML = ''
   myLibrary.forEach(book => {
     const bookCard = document.createElement('div')
@@ -40,8 +42,13 @@ function displayBooks(){
      const status = document.createElement('p')
      titlePara.textContent = book.title
      authorPara.textContent = book.author
-     pageNopara.textContent = book.pageNo
+     pageNopara.textContent = `${book.pageNo}  pages`
      status.textContent = (book.isRead) ? 'read' : 'not read'
+
+     const classname = (book.isRead)? 'read':'not-read'
+     status.classList.add(`${classname}`)
+     status.setAttribute('data-status',`${book.id}`)
+
      bookCard.appendChild(titlePara)
      bookCard.appendChild(authorPara)
      bookCard.appendChild(pageNopara)
@@ -53,6 +60,22 @@ function displayBooks(){
   })
 
 
+}
+
+
+document.addEventListener('click',(e) => {
+  if(e.target.dataset.status){
+    changeReadStatus(+e.target.dataset.status)
+  }
+})
+
+
+function changeReadStatus(bookId){
+  const book = myLibrary.filter((book) => {
+      return book.id === bookId
+  })[0]
+  book.isRead = !book.isRead
+  displayBooks(myLibrary)
 }
 
 

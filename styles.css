@@ -97,11 +97,12 @@ input[type='checkbox']{
 }
 
 .card{
-    width:300px;
+    width:260px;
     padding: 10px;
     background-color: #ccd5ae;
     border-radius: 10px;
-    margin-left:5px 
+    margin:5px ;
+    text-align:center
 }
 
 .card p {
@@ -110,4 +111,12 @@ input[type='checkbox']{
     padding:10px;
     font-size: larger;
     
+}
+
+.not-read{
+    border:10px solid #168aad;
+}
+
+.read{
+    border: 10px solid #76c893;
 }
