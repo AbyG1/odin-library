@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="./bookshelf.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+IS:wght@100..400&display=swap" rel="stylesheet">
+    <title>Your Library</title>
+</head>
+<body>
+    <header>
+        <h1 class="heading">Your library</h1>
+        <button class="add-btn" id="add-btn">
+            <i class="fa-solid fa-plus"></i>
+        </button>
+        
+    </header>
+    <main>
+
+        <dialog id="modal">
+            <form method="dialog" id='book-form'>
+                <h3>Add new book</h3>
+                <input type="text" placeholder="Title"  required name="title" id="title">
+                <input type="text" placeholder="Author" required name="author" id="author">
+                <input type="number" placeholder="No. of pages" required name="pageNo" id="pageNo">
+                <div class="checkbox">
+                     <label for="read">READ</label>
+                     <input type="checkbox" name="readBook" id="read">
+                </div>
+               
+                <button class="submit-btn" id="submit-btn" >ADD</button>
+            </form>
+        </dialog>
+
+        <div id="book-display" class="bookdisplay">
+
+        </div>
+
+    </main>
+
+
+
+    <script src="./index.js"></script>
+</body>
+</html>

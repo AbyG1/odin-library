@@ -1,0 +1,113 @@
+body{
+    margin:0;
+    padding:0;
+    font-family: "Playwrite IS", cursive;
+    
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ccd5ae;
+    height: 100px;
+   
+}
+
+.heading{
+    margin: 0;
+    margin-left:20px
+}
+
+.fa-plus{
+   font-size: 30px; 
+}
+
+.add-btn{
+    margin-right: 40px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border:none;
+}
+
+main{
+    background-color: #e9edc9;
+    min-height: 70vh;
+    padding-top: 100px;
+}
+
+dialog{
+    border-radius: 10px;
+    background-color: #faedcd;
+    border:none;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form h3 {
+    color: #d4a373;
+}
+
+input{
+    margin-bottom: 20px;
+    font-family: inherit;
+    font-weight: bolder;
+    border-radius: 20px;
+    padding: 10px 6px;
+    
+}
+
+
+input[type='checkbox']{
+    transform: scale(2);
+    margin-left: 10px;
+}
+
+.submit-btn{
+    width: 100%;
+    padding: 10px 6px;
+    background-color: #d4a373;
+    border:none;
+    border-radius: 20px;
+    font-family: inherit;
+    color:#e9edc9
+
+}
+
+.checkbox{
+    margin-right: auto;
+}
+
+::backdrop{
+    opacity: 1;
+}
+
+.bookdisplay{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+}
+
+.card{
+    width:300px;
+    padding: 10px;
+    background-color: #ccd5ae;
+    border-radius: 10px;
+    margin-left:5px 
+}
+
+.card p {
+    background-color: gray;
+    color:#e9edc9;
+    padding:10px;
+    font-size: larger;
+    
+}
