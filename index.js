@@ -15,6 +15,11 @@ function Book(title,author,pageNo,isRead) {
     this.id = ++bookIdCounter
 }
 
+Book.prototype.changeReadStatus = function() {
+  this.isRead = !this.isRead;
+};
+
+
 
 
 function addBookToLibrary() {
@@ -72,6 +77,7 @@ function displayBooks(){
 }
 
 
+
 document.addEventListener('click',(e) => {
   if(e.target.dataset.status){
     changeReadStatus(+e.target.dataset.status)
@@ -86,7 +92,9 @@ function changeReadStatus(bookId){
   const book = myLibrary.filter((book) => {
       return book.id === bookId
   })[0]
-  book.isRead = !book.isRead
+  if (book) {
+    book.changeReadStatus();
+}
   displayBooks()
 }
 
